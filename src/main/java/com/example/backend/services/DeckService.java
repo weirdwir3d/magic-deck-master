@@ -17,6 +17,10 @@ public class DeckService {
     }
 
 
+    public Deck addDeckToUser(User user, Deck deck){
+        deck.setUser(user);
+        return deckRepository.save(deck);
+    }
     public List<Deck> getAllDecks(){
         return deckRepository.findAll();
     }

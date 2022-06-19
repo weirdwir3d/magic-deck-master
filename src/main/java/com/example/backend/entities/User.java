@@ -16,6 +16,13 @@ public class User {
     @JsonManagedReference
     private List<Card> cards;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<Deck> decks;
+
+    public List<Deck> getDecks() {
+        return decks;
+    }
     public List<Card> getCards() {
         return cards;
     }

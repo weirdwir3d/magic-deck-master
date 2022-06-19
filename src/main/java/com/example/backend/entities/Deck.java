@@ -1,5 +1,7 @@
 package com.example.backend.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -33,7 +35,15 @@ public class Deck {
     @Column(name = "last_edited")
     private LocalDateTime lastEdited;
 
+    @ManyToOne
+    @JoinColumn(name = "username", nullable = false)
+    @JsonBackReference
+    private User user;
 
+
+    public void setUser(User user){
+        this.user = user;
+    }
     public Long getId() {
         return id;
     }

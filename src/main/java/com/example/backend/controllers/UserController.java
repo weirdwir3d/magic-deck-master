@@ -28,15 +28,29 @@ public class UserController {
     }
 
     //add a card
-    @PostMapping("{username}/cards")
+    @PostMapping("{username}/add-card")
     public Card addCardForUser(@PathVariable String username, @RequestBody Card card){
         User user = getUser(username);
-        System.out.println("THERE ARE THIS MANY USERS: " + userService.getAllUsers().size());
         if (user == null){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User with username " + username + " was not found");
         }
 
         return cardService.addCardToUser(user, card);
+    }
+
+    @PostMapping("{username}/add-deck")
+    public Deck addDeckForUser(@PathVariable String username, @RequestBody Deck deck){
+        User user = getUser(username);
+        if (user == null){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User with username " + username + " was not found");
+        }
+
+        return deckService.addDeckToUser(user, deck);
+    }
+
+    @GetMapping("{username}/decks")
+    public List<Deck> getDecksForUser(@PathVariable String username){
+        return getUser(username).getDecks();
     }
 
     @GetMapping("{username}/cards")
