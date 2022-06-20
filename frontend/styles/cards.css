@@ -1,0 +1,173 @@
+:root {
+    --custom-black: #0d060d;
+    --custom-gray:#383838;
+}
+
+body {
+    background-color: var(--custom-black);
+    margin: 0;
+    color: white;
+}
+
+.fa-solid {
+    color: red;
+}
+
+ul {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+    /* width: 100%; */
+    background-color: var(--custom-gray);
+    /* border: 1px solid white; */
+    overflow: hidden;
+}
+
+ul > * {
+    display: inline;
+    /* text-align: center; */
+    /* display: inline; */
+    float: left;
+}
+
+
+li {
+    display: inline;
+    border: 1px solid pink;
+}
+
+#small-logo {
+    /* display: inline-block; */
+    width: 10%;
+    border: 1px solid white;
+}
+
+li a {
+    color: white;
+    text-align: center;
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    padding: 1em 3.38em;
+}
+
+a {
+    text-align: center;
+    /* padding: 30px 90px; */
+    background-color: var(--custom-gray);
+}
+
+#cards {
+    background-color: orange;
+}
+
+li a:hover {
+    background-color: orange;
+    color: white;
+}
+
+#filter-section {
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#filter-section + div {
+    margin: 1em 2em;
+    height: 3em;
+}
+
+#add-card-btn {
+    display: block;
+    padding: .5em 1em;
+    float: right;
+    width: 12%;
+    height: 100%;
+    background: #F25814;
+    background-image: (top, #F25814, #FAB25A);
+    background-image: -webkit-linear-gradient(top, #F25814, #FAB25A);
+    background-image: -moz-linear-gradient(top, #F25814, #FAB25A);
+    background-image: -ms-linear-gradient(top, #F25814, #FAB25A);
+    background-image: -o-linear-gradient(top, #F25814, #FAB25A);
+    background-image: -webkit-gradient(to bottom, #F25814, #FAB25A);
+    border: none;
+    border-radius: 12px;
+    color: #FFFFFF;
+    padding: 1em 2em;
+    box-shadow: 1px 1px 20px 0 #000000;
+    text-shadow: 1px 1px 20px #000000;
+    cursor: pointer;
+    text-align: center;
+}
+
+#add-card-btn:hover {
+    background: #FAB25A;
+    background-image: (top, #FAB25A, #F25814);
+    background-image: -webkit-linear-gradient(top, #FAB25A, #F25814);
+    background-image: -moz-linear-gradient(top, #FAB25A, #F25814);
+    background-image: -ms-linear-gradient(top, #FAB25A, #F25814);
+    background-image: -o-linear-gradient(top, #FAB25A, #F25814);
+    background-image: -webkit-gradient(to bottom, #FAB25A, #F25814);
+    text-decoration: none;
+}
+
+table {
+    width: 100%;
+}
+
+table, td {
+    /* border: 1px solid red;         */
+}
+
+td > div {
+    display: block;
+    width: 3.5em;
+    background-color: white;
+    margin: auto;
+}
+
+/* table > * {
+    display: block;
+    width: 3.5em;
+    background-color: white;
+} */
+
+#red {
+    height: 20em;
+    width: 15em;
+    background-color: white;
+}
+
+#blue {
+    height: 20em;
+    width: 15em;
+    background-color: white;
+}
+
+#green {
+    height: 20em;
+    width: 15em;
+    background-color: white;
+}
+
+#yellow {
+    height: 20em;
+    width: 15em;
+    background-color: white;
+}
+
+#pink {
+    height: 5em;
+    width: 3.5em;
+    background-color: blue;
+}
+
+#brown {
+    height: 5em;
+    width: 3.5em;
+    background-color: blue;
+}
