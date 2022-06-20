@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0390bac4-3128-4d1d-acd2-07322f528eda" name="Changes" comment="One-to-many relationship between User and Deck. Successfully tested creating a user, adding cards and decks">
+      <change beforePath="$PROJECT_DIR$/backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/repositories/DeckRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/repositories/DeckRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/services/CardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/services/CardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/services/DeckService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/services/DeckService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/style.css" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2AfioruwWMbriZgU127A1HRjtoj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "C:/Users/alder/Documents/University/Quartile 4/Web Applications/magic-deck-master",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "spring.configuration.checksum": "3b615ebbe4cad8832581663e240c1835"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\alder\Documents\University\Quartile 4\Web Applications\magic-deck-master" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alder\Documents\University\Quartile 4\Web Applications\magic-deck-master\backend" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.MagicDeckMasterApplication (1)">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="magic-deck-master" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="magic-deck-master" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MagicDeckMasterApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="magic-deck-master.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.backend.MagicDeckMasterApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.backend.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MagicDeckMasterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.backend.MagicDeckMasterApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.MagicDeckMasterApplication (1)" />
+        <item itemvalue="Spring Boot.MagicDeckMasterApplication (1)" />
+        <item itemvalue="Spring Boot.MagicDeckMasterApplication (1)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0390bac4-3128-4d1d-acd2-07322f528eda" name="Changes" comment="" />
+      <created>1655407222133</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1655407222133</updated>
+      <workItem from="1655407224546" duration="1006000" />
+      <workItem from="1655408266910" duration="741000" />
+      <workItem from="1655410085541" duration="1069000" />
+      <workItem from="1655413340501" duration="9000" />
+      <workItem from="1655447542243" duration="901000" />
+      <workItem from="1655448728624" duration="9834000" />
+      <workItem from="1655464706628" duration="807000" />
+      <workItem from="1655532155075" duration="1332000" />
+      <workItem from="1655579369220" duration="740000" />
+      <workItem from="1655581772093" duration="2661000" />
+      <workItem from="1655647965721" duration="660000" />
+      <workItem from="1655658318611" duration="49000" />
+      <workItem from="1655658464856" duration="29000" />
+      <workItem from="1655658501977" duration="38000" />
+      <workItem from="1655737133842" duration="435000" />
+      <workItem from="1655744896004" duration="225000" />
+      <workItem from="1655745135989" duration="758000" />
+    </task>
+    <task id="LOCAL-00001" summary="Initialized project (system files with concept, DB scheme and wireframes; spring initializr and hibernate)">
+      <created>1655407671194</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1655407671194</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added all entities attributes, added controllers, services, repositories. Started creating one-to-many relationship between User and Card. Tried to insert card to user but failed">
+      <created>1655458551644</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1655458551644</updated>
+    </task>
+    <task id="LOCAL-00003" summary="One-to-many relationship between User and Deck. Successfully tested creating a user, adding cards and decks">
+      <created>1655626833626</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1655626833626</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initialized project (system files with concept, DB scheme and wireframes; spring initializr and hibernate)" />
+    <MESSAGE value="Added all entities attributes, added controllers, services, repositories. Started creating one-to-many relationship between User and Card. Tried to insert card to user but failed" />
+    <MESSAGE value="One-to-many relationship between User and Deck. Successfully tested creating a user, adding cards and decks" />
+    <option name="LAST_COMMIT_MESSAGE" value="One-to-many relationship between User and Deck. Successfully tested creating a user, adding cards and decks" />
+  </component>
+</project>
