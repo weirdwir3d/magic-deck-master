@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Magic Deck Master</title>
+    <link rel="icon" type="image/x-icon" href="../images/small-logo.ico">
+    <link rel="stylesheet" href="../styles/login.css"></link>
+    <script defer type="text/javascript" src="../scripts/login.js"></script>
+</head>
+<body>
+    <nav id="nav">
+        <ul>
+            <li><img id="small-logo" src="../images/small-logo.png"></li>
+            <li><a href="contacts.html">Contacts</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="cards.html">Cards</a></li>
+            <li><a href="decks.html">Decks</a></li>
+            <li><a id="login" href="index.html">Log in</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <img id="main-logo" src="../images/main-logo.jpg" alt="main-logo">
+        <p id="incorrect-login-details"></p>
+        <form id="login-form" action="http://localhost:8080/users" method="get">
+            <input type="text" id="username-input" name="username" placeholder="Username"><br><br>
+            <input type="password" id="password-input" name="password" placeholder="Password"><br><br>
+            <input type="submit" value="Log in" href="index.html">
+        </form>
+        <p>Don't have an account?<a href="register.html" id="register-link"> Register</a></p>
+    </section>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Magic Deck Master</title>
+    <link rel="icon" type="image/x-icon" href="../images/small-logo.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../styles/cards.css"></link>
+    <script defer type="text/javascript" src="../scripts/cards.js"></script>
+</head>
+<body>
+    <nav id="nav">
+        <ul>
+            <li id="shit"><img id="small-logo" src="../images/small-logo.png"></li>
+            <li><a href="contacts.html">Contacts</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a id="cards" href="cards.html">Cards</a></li>
+            <li><a href="decks.html">Decks</a></li>
+            <li><a id="login" href="index.html">Log in</a></li>
+        </ul>
+    </nav>
+
+    <section id="filter-section">
+        <div class="filter-section" id="order-by">
+            <label for="order-by">Order by:</label>
+            <select name="order-by" id="order-by-options">
+              <option value="latest-added">Latest added</option>
+              <option value="latest-edited">Latest edited</option>
+              <option value="alphabetical-order">Alphabetical order</option>
+              <option value="reversed-alphabetical-order">Reversed alphabetical order</option>
+              <option value="power">Power</option>
+              <option value="toughness">Toughness</option>
+              <option value="type">Type</option>
+              <option value="colors">Colors</option>
+              <option value="mana-cost">Mana cost</option>
+            </select> 
+        </div>
+        <div class="filter-section" id="filter-by">
+            <label for="filter-by">Filter by:</label>
+            <select name="filter-by" id="filter-by-options">
+              <option value="power-higher-than">Power higher than...</option>
+              <option value="toughness-higher-than">Toughness higher than...</option>
+              <option value="type">Type...</option>
+              <option value="colors">Colors...</option>
+              <option value="mana-cost-higher-than">Mana cost higher than...</option>
+              <option value="in-deck">In a deck</option>
+              <option value="not-in-a-deck">Not in a deck</option>
+            </select> 
+        </div>
+        <div class="filter-section" id="group-actions">
+            <label for="group-actions">Group actions:</label>
+            <select name="group-actions" id="group-actions-options">
+              <option value="delete">Delete</option>
+              <option value="add-to-deck">Add to deck</option>
+              <option value="add-to-triangle">Add to <i class="fa-solid fa-triangle"></i></option>
+              <option value="add-to-circle">Add to <i class="fa-solid fa-circle"></i></option>
+              <option value="add-to-square">Add to <i class="fa-solid fa-square"></i></option>
+            </select> 
+        </div>
+    </section>
+
+    <div>
+        <button id="add-card-btn"><i class="fa-solid fa-plus"></i> Add card</button>
+    </div>
+
+    <table>
+        <tr>
+        <td><div id="red"></div></td>
+        <td><div id="blue"></div></td>
+        <td><div id="green"></div></td>
+        <td><div id="yellow"></div></td>
+    </tr>
+    <tr>
+        <td><div id="pink"></div></td>
+        <td><div id="brown"></div></td>
+        <td><div id="purple"></div></td>
+        <td><div id="orange"></div></td>
+    </tr>
+    </table>
+    
