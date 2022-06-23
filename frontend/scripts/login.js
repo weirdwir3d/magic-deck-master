@@ -8,33 +8,25 @@ form.addEventListener("submit", async function(event) {
     let password = document.getElementById("password-input").value;
     user["username"] = username;
     user["password"] = password;
-    console.log(username);
-    JSON.stringify(user);
-    console.log(user.username);
-    await checkLogin(user.username)
-    username = "";
-    password = "";
+    await checkLogin(user)
+    for (const elem of document.querySelectorAll("input[type=text], input[type=password]")){
+        elem.value = "";
+    }
     document.getElementById("incorrect-login-details").innerHTML = "User found";
 });
 
-async function checkLogin(username){
+async function checkLogin(user){
+    console.log(JSON.stringify(user));
     try {
-        const response = await fetch('http://localhost:8080/users/' + username, {
-            mode: 'no-cors',
+        const response = await fetch('http://localhost:8080/users/' + user.username, {
             method: 'GET',
-            cache: 'no-cache',
             headers: {
                 'Content-type': 'application/json'
             }
         })
-        .then((response) => {
-            console.log(response.json());
-            return response.json();
-        });
-
         await response.json();
     } catch (e){
-        console.error(e);
-        alert("smth went wrong");
+        console.log(e);
+        console.log("smth went wrong");
     }
 }

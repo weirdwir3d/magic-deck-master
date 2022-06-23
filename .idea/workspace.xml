@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0390bac4-3128-4d1d-acd2-07322f528eda" name="Changes" comment="One-to-many relationship between User and Deck. Successfully tested creating a user, adding cards and decks">
-      <change beforePath="$PROJECT_DIR$/backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/repositories/DeckRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/repositories/DeckRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/services/CardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/services/CardService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/services/DeckService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/services/DeckService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/cards.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/cards.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/scripts/cards.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/scripts/cards.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/scripts/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/scripts/register.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +59,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "C:/Users/alder/Documents/University/Quartile 4/Web Applications/magic-deck-master",
+    "last_opened_file_path": "C:/Users/alder/Documents/University/Quartile 4/Web Applications/magic-deck-master/backend",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
@@ -77,7 +75,7 @@
       <recent name="C:\Users\alder\Documents\University\Quartile 4\Web Applications\magic-deck-master\backend" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.MagicDeckMasterApplication (1)">
+  <component name="RunManager" selected="Spring Boot.MagicDeckMasterApplication">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="magic-deck-master" />
       <method v="2">
@@ -144,6 +142,8 @@
       <workItem from="1655737133842" duration="435000" />
       <workItem from="1655744896004" duration="225000" />
       <workItem from="1655745135989" duration="758000" />
+      <workItem from="1655793185868" duration="17000" />
+      <workItem from="1655806099684" duration="92000" />
     </task>
     <task id="LOCAL-00001" summary="Initialized project (system files with concept, DB scheme and wireframes; spring initializr and hibernate)">
       <created>1655407671194</created>
