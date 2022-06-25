@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Magic Deck Master</title>
+    <link rel="icon" type="image/x-icon" href="../images/small-logo.ico">
+    <link rel="stylesheet" href="../styles/addCardToDeck.css"></link>
+    <script defer type="text/javascript" src="../scripts/addCardToDeck.js"></script>
+</head>
+<body>
+    <nav id="nav">
+        <ul>
+            <li><img id="small-logo" src="../images/small-logo.png"></li>
+            <li><a href="contacts.html">Contacts</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a id="cards" href="cards.html">Cards</a></li>
+            <li><a href="decks.html">Decks</a></li>
+            <li><a href="index.html">Log in</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <p id="incorrect-card-details"></p>
+        <form id="add-card-to-deck-form" action="http://localhost:8080/users/abc/cards/{id}/add-card-to-deck" method="post">
+            <input type="text" id="name-input" name="name" placeholder="Card name"><br><br>
+            <input type="text" id="type-input" name="type" placeholder="Type"> 
+            <!-- <input type="checkbox" id="type-input" name="fire" value="Fire">
+            <label for="fire">Fire</label><br>
+            <input type="checkbox" id="type-input" name="water" value="Water">
+            <label for="water">Water</label><br>
+            <input type="checkbox" id="type-input" name="forest" value="Forest">
+            <label for="forest">Forest</label><br> -->
+            <input type="submit" value="Add to deck" href="addCardToDeck.html">
+        </form>
+        <p id="add-attempt-result"></p>
+    </section>
+</body>
+</html>

@@ -1,19 +1,21 @@
 let form = document.getElementById("register-form");
 
-
 form.addEventListener("submit", async function(event) {
     event.preventDefault();
     let user = {};
     let username = document.getElementById("username-input").value;
     let password = document.getElementById("password-input").value;
     let repeatPassword = document.getElementById("repeat-password-input").value;
-    if (checkFields(username, password, repeatPassword)){
+    console.log(username + ", " + password + ", " + repeatPassword);
+    if (await checkFields(username, password, repeatPassword)){
         user["username"] = username; 
         user["password"] = password;
     await createUser(user)
+    console.log(username + ", " + password + ", " + repeatPassword);
     for (const elem of document.querySelectorAll("input[type=text], #password-input")){
         elem.value = "";
     }
+    console.log(username + ", " + password + ", " + repeatPassword);
     document.getElementById("registration-result").innerHTML = "User successfully registered";
     } else {
         console.log("smth went wrong");
@@ -36,13 +38,13 @@ async function createUser(user){
     }
 }
 
-function checkFields(username, password, repeatPassword){
+async function checkFields(username, password, repeatPassword){
     isUsernameValid = false;
     isPasswordValid = false;
     isSecondPasswordValid = false;
 
-    let usernameRegEx = "^[a-z0-9_-]{4,10}$";
-    let passwordRegEx = "^[a-z0-9_-]{6,20}$";
+    let usernameRegEx = "^[A-Za-z][A-Za-z0-9_]{4,10}$";
+    let passwordRegEx = "[a-z0-9_-]{6,20}";
 
     if (username.match(usernameRegEx)){
         console.log("valid username");
