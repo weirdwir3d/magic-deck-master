@@ -60,6 +60,19 @@ a {
     background-color: var(--custom-gray);
 }
 
+#add-cards-btn {
+    display: inline;
+}
+
+#add-cards-btn > a {
+    color: white;
+    text-align: center;
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    padding: 1em 3.38em;
+}
+
 #cards {
     background-color: orange;
 }

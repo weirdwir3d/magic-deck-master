@@ -3,6 +3,7 @@ package com.example.backend.entities;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -33,5 +34,18 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public List<Card> findCards(String name) {
+        if (name == null){
+            throw new EntityNotFoundException();
+        }
+        List<Card> result = new ArrayList<>();
+        for(Card card : cards){
+            if (card.getName().contains(name)){
+                result.add(card);
+            }
+        }
+        return result;
     }
 }

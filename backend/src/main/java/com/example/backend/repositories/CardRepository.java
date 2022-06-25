@@ -10,4 +10,6 @@ import java.util.List;
 public interface CardRepository extends CrudRepository<Card, Long> {
     @Override
     List<Card> findAll();
+
+    public List<Card> findAllByName(String name);
 }

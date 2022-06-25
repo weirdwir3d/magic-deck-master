@@ -1,4 +1,6 @@
 let form = document.getElementById("login-form");
+let secondPassword = document.getElementById("repeat-password-input");
+console.log(secondPassword);
 
 
 form.addEventListener("submit", async function(event) {
@@ -8,11 +10,13 @@ form.addEventListener("submit", async function(event) {
     let password = document.getElementById("password-input").value;
     user["username"] = username;
     user["password"] = password;
+    console.log(secondPassword);
     await checkLogin(user)
     for (const elem of document.querySelectorAll("input[type=text], input[type=password]")){
         elem.value = "";
     }
     document.getElementById("incorrect-login-details").innerHTML = "User found";
+    console.log(secondPassword);
 });
 
 async function checkLogin(user){

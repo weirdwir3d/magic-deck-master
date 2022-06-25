@@ -10,4 +10,6 @@ import java.util.List;
 public interface DeckRepository extends CrudRepository<Deck, Long> {
     @Override
     List<Deck> findAll();
+
+    public List<Deck> findDecksByName(String name);
 }
