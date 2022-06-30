@@ -1,23 +1,29 @@
+const urlParams = new URLSearchParams(window.location.search);
+console.log("displaying cards for user: ", urlParams.get('username'));
+const table = document.getElementById("cards-display");
+
+async function getCards() {
+    try {
+        const response = await fetch('http://localhost:8080/users/'+urlParams.get('username')+'/cards');
+        console.log(response);
+        const responseJson = await response.json();
+        console.log(responseJson);
+        for (const item of responseJson){
+            console.log(item);
+        }
+    } catch (e){
+        console.error(e);
+    }
+}
+
+getCards();
 let addCardBtn = document.getElementById("add-card-btn");
 let cards = document.querySelectorAll(".card");
-let table = document.getElementsByTagName("td");
+let td = document.getElementsByTagName("td");
 let a = document.getElementById("filter-section");
 console.log(cards);
 console.log(table[0]);
 
-// for (let i = 0; i < cards.length; i++){
-//     cards[i].addEventListener("mouseover", function () {
-//         console.log(cards[i]);
-//         let hoverMenu = document.createElement("div");
-//         var rect = cards[i].getBoundingClientRect();
-//         console.log(rect.top, rect.right, rect.bottom, rect.left);
-//         hoverMenu.style.position = 'absolute';
-//         hoverMenu.style.width = '10em';
-//         hoverMenu.style.left = '5em';
-//         hoverMenu.style.top = '5em';
-//         a.appendChild(hoverMenu);
-//     });
-// }
 
 addCardBtn.addEventListener("click", function(){
     

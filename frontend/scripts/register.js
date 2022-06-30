@@ -15,7 +15,8 @@ form.addEventListener("submit", async function(event) {
     for (const elem of document.querySelectorAll("input[type=text], #password-input")){
         elem.value = "";
     }
-    console.log(username + ", " + password + ", " + repeatPassword);
+    document.getElementById("login").innerHTML = username;
+    location.href = 'welcome.html?username='+username;
     document.getElementById("registration-result").innerHTML = "User successfully registered";
     } else {
         console.log("smth went wrong");
@@ -27,6 +28,7 @@ async function createUser(user){
         const response = await fetch('http://localhost:8080/users', {
             method: 'POST',
             headers: {
+                'Access-Control-Allow-Origin': '*',
                 'Content-type': 'application/json'
             },
             body: JSON.stringify(user)
@@ -75,3 +77,23 @@ async function checkFields(username, password, repeatPassword){
             return true;
     }
 }
+
+function setCookie(cname, cvalue) {
+    document.cookie = cname + "=" + cvalue + ";" + ";path=/";
+}
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }

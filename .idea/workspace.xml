@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0390bac4-3128-4d1d-acd2-07322f528eda" name="Changes" comment="One-to-many relationship between User and Deck. Successfully tested creating a user, adding cards and decks">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/cards.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/cards.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/scripts/cards.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/scripts/cards.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/scripts/addCardToUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/scripts/addCardToUser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/scripts/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/scripts/register.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,25 +46,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "C:/Users/alder/Documents/University/Quartile 4/Web Applications/magic-deck-master/backend",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "spring.configuration.checksum": "3b615ebbe4cad8832581663e240c1835"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/alder/Documents/University/Quartile 4/Web Applications/magic-deck-master/backend&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;3b615ebbe4cad8832581663e240c1835&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\alder\Documents\University\Quartile 4\Web Applications\magic-deck-master" />
@@ -144,6 +142,7 @@
       <workItem from="1655745135989" duration="758000" />
       <workItem from="1655793185868" duration="17000" />
       <workItem from="1655806099684" duration="92000" />
+      <workItem from="1656579313991" duration="18000" />
     </task>
     <task id="LOCAL-00001" summary="Initialized project (system files with concept, DB scheme and wireframes; spring initializr and hibernate)">
       <created>1655407671194</created>
