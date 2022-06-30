@@ -1,5 +1,4 @@
 let form = document.getElementById("add-card-form");
-let limitCheckedBoxes = 2;
 
 form.addEventListener("submit", async function(event) {
     event.preventDefault();
@@ -18,9 +17,10 @@ form.addEventListener("submit", async function(event) {
 
 async function postNewFeedBack(card){
     try {
-        const response = await fetch('http://localhost:8080/users/abc/cards/add-card', {
+        const response = await fetch('http://localhost:8080/users/{username}/cards', {
             method: 'POST',
             headers: {
+                'Access-Control-Allow-Origin': '*',
                 'Content-type': 'application/json'
             },
             body: JSON.stringify(card)

@@ -36,13 +36,26 @@ public class UserController {
     }
 
     //TODO: USERS
+    //get all users
+    @GetMapping
+    public List<User> getAllUsers() {
+        System.out.println("Getting users");
+        return this.userService.getAllUsers();
+    }
+
+    //get a user
     @GetMapping("/{username}")
     public User getUser(@PathVariable String username){
         Optional<User> user = userService.findUser(username);
 
+        if (user.isEmpty()){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found");
+        }
+
         return user.orElse(null);
     }
 
+    //create new user
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public User addNewUser(@RequestBody User user) {
@@ -56,12 +69,7 @@ public class UserController {
         return this.userService.saveUser(user);
     }
 
-    @GetMapping
-    public List<User> getAllUsers() {
-        System.out.println("Getting users");
-        return this.userService.getAllUsers();
-    }
-
+    //delete user
     @DeleteMapping("/{username}")
     public void deleteUser(@PathVariable String username){
 //        userService.deleteUser(getUser(username));
@@ -79,6 +87,7 @@ public class UserController {
     }
 
     //get all cards from user
+//    @CrossOrigin(origins = "*")
     @GetMapping("{username}/cards")
     @JsonView(Views.CardsView.class)
     public List<Card> getCardsForUser(@PathVariable String username){
@@ -101,24 +110,23 @@ public class UserController {
     @GetMapping("{username}/cards/search")
     @JsonView(Views.CardsView.class)
     public List<Card> getCards(@PathVariable String username, @RequestParam String name) {
-        return getUser(username).findCards(name);
-//        return cardService.findAllByName(name);
+        User user = getUser(username);
+        return cardService.findCardsByUserAndName(user, name);
+
+        // if the above doesnt work, try this:
+//        return getUser(username).findCards(name);
     }
 
-    //TODO: doesnt work
     //put card to deck
-    @PutMapping("{username}/cards/{card_id}/decks/{deck_id}/add-card")
+    @PutMapping("{username}/cards/{card_id}/decks/{deck_id}")
     public void addCardForDeck(@PathVariable String username, @PathVariable Long card_id, @PathVariable Long deck_id){
         try {
             joinDeckCardService.joinDeckAndCard(deck_id, card_id);
         } catch (EntityNotFoundException enfe){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, enfe.getMessage());
         }
-//        TODO: ...what to do?
-//        return joinDeckCardService.joinDeckAndCard(deck_id, card_id);
     }
 
-    //TODO: doesnt work
     //get all cards in a deck
     @GetMapping("{username}/decks/{deck_id}/cards")
     @JsonView(Views.CardsView.class)
@@ -134,7 +142,7 @@ public class UserController {
 
     //TODO: not wanting to deleting card completely, just removing from deck
     //delete card from deck
-    @DeleteMapping("{username}/decks/{deck_id}/cards/{card_id}/delete-card")
+    @DeleteMapping("{username}/decks/{deck_id}/cards/{card_id}")
     public void removeCardFromDeck(@PathVariable Long deckId, @PathVariable Long cardId){
         //
     }

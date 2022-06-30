@@ -43,6 +43,10 @@ public class CardService {
         return cardRepository.findAllByName(name);
     }
 
+    public List<Card> findCardsByUserAndName(User user, String name){
+        return cardRepository.findCardsByUserAndName(user, name);
+    }
+
     public void deleteCard(Card card){
         cardRepository.delete(card);
     }
