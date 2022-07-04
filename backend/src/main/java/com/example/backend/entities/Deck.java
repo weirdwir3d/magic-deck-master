@@ -1,8 +1,7 @@
 package com.example.backend.entities;
 
 import com.example.backend.entities.views.Views;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -11,6 +10,7 @@ import java.util.Optional;
 import java.util.Set;
 
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class Deck {
 
     @Id
@@ -62,6 +62,7 @@ public class Deck {
             inverseJoinColumns = @JoinColumn(name = "card_id")
     )
     @JsonView(Views.DecksView.class)
+//    @JsonManagedReference("deck_card")
     private Set<Card> cards;
 
     @JsonView(Views.DecksView.class)

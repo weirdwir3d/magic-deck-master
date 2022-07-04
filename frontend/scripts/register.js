@@ -16,8 +16,8 @@ form.addEventListener("submit", async function(event) {
         elem.value = "";
     }
     document.getElementById("login").innerHTML = username;
-    location.href = 'welcome.html?username='+username;
     document.getElementById("registration-result").innerHTML = "User successfully registered";
+    location.href = 'welcome.html?username='+username;
     } else {
         console.log("smth went wrong");
     }
@@ -77,23 +77,3 @@ async function checkFields(username, password, repeatPassword){
             return true;
     }
 }
-
-function setCookie(cname, cvalue) {
-    document.cookie = cname + "=" + cvalue + ";" + ";path=/";
-}
-
-function getCookie(cname) {
-    let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for(let i = 0; i <ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
-  }
