@@ -2,12 +2,16 @@ package com.example.backend.entities;
 
 import com.example.backend.entities.views.Views;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator, property="@UUID")
 public class Card {
 
     @Id
