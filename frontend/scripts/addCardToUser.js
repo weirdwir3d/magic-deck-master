@@ -1,7 +1,8 @@
 const urlParams = new URLSearchParams(window.location.search);
 console.log("add card for user:", urlParams.get('username'));
 var username = urlParams.get('username');
-document.getElementById("login").innerHTML = String(username);
+let login = document.getElementById("login");
+login.innerHTML = String(username);
 let form = document.getElementById("add-card-form");
 
 form.addEventListener("submit", async function(event) {
@@ -58,6 +59,15 @@ document.getElementById("decks").addEventListener("click", async function(event)
 document.getElementById("about").addEventListener("click", function(event) {
     event.preventDefault();
     location.href = 'about.html?username='+username;
+});
+login.addEventListener(("mouseover"), function() {
+    login.innerHTML = "Log out";
+    login.style.backgroundColor = "red";
+
+    login.addEventListener(("mouseout"), function() {
+        login.innerHTML = String(username);
+        login.style.backgroundColor = "#383838";
+    });
 });
 
 

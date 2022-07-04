@@ -6,20 +6,28 @@ form.addEventListener("submit", async function(event) {
     let username = document.getElementById("username-input").value;
     let password = document.getElementById("password-input").value;
     let repeatPassword = document.getElementById("repeat-password-input").value;
-    console.log(username + ", " + password + ", " + repeatPassword);
+    user["username"] = username; 
+    user["password"] = password;
+    console.log(JSON.stringify(user));
+        // console.log(username + ", " + password + ", " + repeatPassword);
     if (await checkFields(username, password, repeatPassword)){
-        user["username"] = username; 
-        user["password"] = password;
-    await createUser(user)
-    console.log(username + ", " + password + ", " + repeatPassword);
-    for (const elem of document.querySelectorAll("input[type=text], #password-input")){
-        elem.value = "";
-    }
-    document.getElementById("login").innerHTML = username;
-    document.getElementById("registration-result").innerHTML = "User successfully registered";
-    location.href = 'welcome.html?username='+username;
-    } else {
-        console.log("smth went wrong");
+        if (await createUser(user) == "User with this username already exists") {
+            document.getElementById("registration-result").style.color = "red";
+            document.getElementById("registration-result").innerHTML = "Username already in use";
+            console.log("User with this username already exists");
+        } else {
+            for (const elem of document.querySelectorAll("input[type=text], #password-input")){
+                elem.value = "";
+                document.getElementById("login").innerHTML = username;
+                document.getElementById("registration-result").style.color = "green";
+                document.getElementById("registration-result").innerHTML = "User successfully registered";
+                location.href = 'welcome.html?username='+username;
+        }
+        // console.log(username + ", " + password + ", " + repeatPassword);
+        }
+      }
+    else {
+        console.log("smth wrong with username or password");
     }
 });
 
@@ -34,11 +42,22 @@ async function createUser(user){
             body: JSON.stringify(user)
         })
         await response.json();
+        // console.log("Response status: ", response.status);
+        let responseStatus = String(response.status);
+        console.log(responseStatus);
+        if (responseStatus == "409"){
+            return "User with this username already exists";
+        } else {
+            return "User successfully created";
+        }
     } catch (e){
         console.error(e);
         alert("smth went wrong");
     }
 }
+
+
+//FUNCTIONS
 
 async function checkFields(username, password, repeatPassword){
     isUsernameValid = false;

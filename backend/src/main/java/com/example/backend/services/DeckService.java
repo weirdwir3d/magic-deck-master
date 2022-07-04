@@ -17,6 +17,7 @@ public class DeckService {
     }
 
     public Deck addDeckToUser(User user, Deck deck){
+//        user.getDecks().add(deck);
         deck.setUser(user);
         return deckRepository.save(deck);
     }

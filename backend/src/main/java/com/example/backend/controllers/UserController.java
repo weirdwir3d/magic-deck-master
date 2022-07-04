@@ -65,6 +65,9 @@ public class UserController {
         if (user.getPassword() == null || user.getPassword().isEmpty()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Password can't be null or empty");
         }
+        if (userService.findUser(user.getUsername()).isPresent()){
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Username already in use");
+        }
 
         return this.userService.saveUser(user);
     }

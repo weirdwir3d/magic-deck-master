@@ -2,7 +2,8 @@ const urlParams = new URLSearchParams(window.location.search);
 console.log("displaying cards for user:", urlParams.get('username'));
 const table = document.getElementById("cards-display");
 var username = urlParams.get('username');
-document.getElementById("login").innerHTML = String(username);
+let login = document.getElementById("login");
+login.innerHTML = String(username);
 let addCardBtn = document.getElementById("add-card-btn");
 let cards = document.querySelectorAll(".card");
 let td = document.getElementsByTagName("td");
@@ -53,6 +54,16 @@ document.getElementById("decks").addEventListener("click", async function(event)
 document.getElementById("about").addEventListener("click", function(event) {
     event.preventDefault();
     location.href = 'about.html?username='+username;
+});
+
+login.addEventListener(("mouseover"), function() {
+    login.innerHTML = "Log out";
+    login.style.backgroundColor = "red";
+
+    login.addEventListener(("mouseout"), function() {
+        login.innerHTML = String(username);
+        login.style.backgroundColor = "#383838";
+    });
 });
 
 //FUNCTIONS
