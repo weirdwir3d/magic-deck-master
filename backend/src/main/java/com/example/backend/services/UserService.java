@@ -17,7 +17,7 @@ public class UserService {
     }
 
 
-    public Optional<User> findUser(String username){
+    public Optional<User> findUserByUsername(String username){
         return userRepository.findById(username);
     }
     public List<User> getAllUsers(){

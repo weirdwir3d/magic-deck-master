@@ -43,10 +43,10 @@ public class UserController {
         return this.userService.getAllUsers();
     }
 
-    //get a user
+    //get a user by username
     @GetMapping("/{username}")
-    public User getUser(@PathVariable String username){
-        Optional<User> user = userService.findUser(username);
+    public User getUserByUsername(@PathVariable String username){
+        Optional<User> user = userService.findUserByUsername(username);
 
         if (user.isEmpty()){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found");
@@ -54,6 +54,22 @@ public class UserController {
 
         return user.orElse(null);
     }
+
+    //get a user by username and password
+    @GetMapping("/{username}/{password}")
+    public User getUserByUsernameAndPassword(@PathVariable String username, @PathVariable String password){
+        User user = getUserByUsername(username);
+
+        if (user == null){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found");
+        }
+        if (!password.equals(user.getPassword())){
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Incorrect password for this user");
+        }
+
+        return user;
+    }
+
 
     //create new user
     @PostMapping
@@ -65,7 +81,7 @@ public class UserController {
         if (user.getPassword() == null || user.getPassword().isEmpty()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Password can't be null or empty");
         }
-        if (userService.findUser(user.getUsername()).isPresent()){
+        if (userService.findUserByUsername(user.getUsername()).isPresent()){
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Username already in use");
         }
 
@@ -82,7 +98,7 @@ public class UserController {
     //add a new card to user
     @PostMapping("{username}/cards")
     public Card addCardForUser(@PathVariable String username, @RequestBody Card card){
-        User user = getUser(username);
+        User user = getUserByUsername(username);
         if (user == null){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User with username " + username + " was not found");
         }
@@ -94,14 +110,14 @@ public class UserController {
     @GetMapping("{username}/cards")
     @JsonView(Views.CardsView.class)
     public List<Card> getCardsForUser(@PathVariable String username){
-        return getUser(username).getCards();
+        return getUserByUsername(username).getCards();
     }
 
     //get a card from user
     @GetMapping("/{username}/cards/{card_id}")
     @JsonView(Views.CardsView.class)
     public Card getCard(@PathVariable String username, @PathVariable Long card_id){
-        User user = getUser(username);
+        User user = getUserByUsername(username);
         try {
             return cardService.getCard(card_id);
         } catch (EntityNotFoundException enfe){
@@ -113,7 +129,7 @@ public class UserController {
     @GetMapping("{username}/cards/search")
     @JsonView(Views.CardsView.class)
     public List<Card> getCards(@PathVariable String username, @RequestParam String name) {
-        User user = getUser(username);
+        User user = getUserByUsername(username);
         return cardService.findCardsByUserAndName(user, name);
 
         // if the above doesnt work, try this:
@@ -154,7 +170,7 @@ public class UserController {
     //add a new deck to user
     @PostMapping("{username}/decks")
     public Deck addDeckForUser(@PathVariable String username, @RequestBody Deck deck){
-        User user = getUser(username);
+        User user = getUserByUsername(username);
         if (user == null){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User with username " + username + " was not found");
         }
@@ -165,7 +181,7 @@ public class UserController {
     @GetMapping("{username}/decks")
     @JsonView(Views.DecksView.class)
     public List<Deck> getDecksForUser(@PathVariable String username){
-        return getUser(username).getDecks();
+        return getUserByUsername(username).getDecks();
     }
 
     //get a deck from user
