@@ -16,7 +16,7 @@ form.addEventListener("submit", async function(event) {
             document.getElementById("registration-result").innerHTML = "Username already in use";
             console.log("User with this username already exists");
         } else {
-            for (const elem of document.querySelectorAll("input[type=text], #password-input")){
+            for (const elem of document.querySelectorAll("input[type=text], input[type=password]")){
                 elem.value = "";
                 document.getElementById("login").innerHTML = username;
                 document.getElementById("registration-result").style.color = "green";
@@ -64,8 +64,8 @@ async function checkFields(username, password, repeatPassword){
     isPasswordValid = false;
     isSecondPasswordValid = false;
 
-    let usernameRegEx = "^[A-Za-z][A-Za-z0-9_]{4,10}$";
-    let passwordRegEx = "[a-z0-9_-]{6,20}";
+    let usernameRegEx = "^[A-Za-z][A-Za-z0-9_]{3,11}$";
+    let passwordRegEx = "[a-z0-9_-]{5,21}";
 
     if (username.match(usernameRegEx)){
         console.log("valid username");
@@ -79,20 +79,20 @@ async function checkFields(username, password, repeatPassword){
         isSecondPasswordValid = true;
     }
 
-    switch(isUsernameValid, isPasswordValid, isSecondPasswordValid) {
-        case isUsernameValid = false:
-            document.getElementById("registration-result").innerHTML = "username should be longer than 4 and shorter than 10 charaters";
-            console.error("username should be longer than 4 and shorter than 10 charaters");
-            return false;
-        case isPasswordValid = false:
-            document.getElementById("registration-result").innerHTML = "password should be longer than 6 and shorter than 20 charaters";
-            console.error("password should be longer than 6 and shorter than 20 charaters");
-            return false;
-        case isSecondPasswordValid = false:
-            document.getElementById("registration-result").innerHTML = "passwords dont match";
-            console.error("passwords dont match");
-            return false;
-        default:
-            return true;
+    if(!isUsernameValid){
+        document.getElementById("registration-result").innerHTML = "username should be longer than 4 and shorter than 10 charaters";
+        console.error("Username should be longer than 4 and shorter than 10 charaters");
+        return false;
     }
+    if(!isPasswordValid){
+        document.getElementById("registration-result").innerHTML = "password should be longer than 6 and shorter than 20 charaters";
+        console.error("Password should be longer than 6 and shorter than 20 charaters");
+        return false;
+    }
+    if (!isSecondPasswordValid){
+        document.getElementById("registration-result").innerHTML = "passwords dont match";
+        console.error("Passwords don't match");
+        return false;
+    }
+    return true;
 }

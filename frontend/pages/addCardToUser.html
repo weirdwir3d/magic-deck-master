@@ -8,24 +8,47 @@
     <script defer type="text/javascript" src="../scripts/addCardToUser.js"></script>
 </head>
 <body>
+    <section id="overlay">
+        <div id="info-box">
+            <p>Browse the official <a href="https://gatherer.wizards.com/Pages/Default.aspx" target="_blank">Gatherer</a> to find the card you want to add.<br>
+            Once found, right-click on its image and select the <em>Copy Image Link</em> option. Then paste the link in the Image path field in this window.<br><br>
+            Only images from the Gatherer repository will be displayed on this website.
+            </p>
+        </div>
+    </section>
     <nav id="nav">
         <ul>
-            <li><img id="small-logo" src="../images/small-logo.png"></li>
-            <li><a id="about" href="about.html">About</a></li>
-            <li><a id="cards" href="cards.html">Cards</a></li>
-            <li><a id="decks" href="decks.html">Decks</a></li>
-            <li><a id="login" href="index.html">Log in</a></li>
+            <li id="li-img"><img id="small-logo" src="../images/small-logo.png"></li>
+            <div>
+                <li><a id="about" href="about.html">About</a></li>
+                <li><a id="cards" href="cards.html">Cards</a></li>
+                <li><a id="decks" href="decks.html">Decks</a></li>
+                <li><a id="login" href="index.html">Log in</a></li>
+            </div>
         </ul>
     </nav>
 
     <section>
         <p id="incorrect-card-details"></p>
-        <form id="add-card-form" action="http://localhost:8080/users/{username}/cards/add-card" method="post">
+        <form id="add-card-form" action="http://localhost:8080/users/{username}/cards" method="post">
             <input type="text" id="name-input" name="name" placeholder="Card name"><br><br>
-            <input type="text" id="type-input" name="type" placeholder="Type"> 
-            <!-- <input type="checkbox" id="type-input" name="fire" value="Fire">
-            <label for="fire">Fire</label><br>
-            <input type="checkbox" id="type-input" name="water" value="Water">
+            <input type="text" id="type-input" name="type" placeholder="Type"><br><br>
+            <input type="text" id="color1-input" name="color1" placeholder="Color 1"><br><br>
+            <input type="text" id="color2-input" name="color2" placeholder="Color 2"><br><br>
+            <input type="number" id="power-input" name="power" placeholder="Power"><br><br>
+            <input type="number" id="toughness-input" name="toughness" placeholder="Toughness"><br><br>
+            <input type="number" id="manacost1-input" name="manaCost1" placeholder="Mana Cost 1"><br><br>
+            <input type="number" id="manacost2-input" name="manaCost2" placeholder="Mana Cost 2"><br><br>
+            <input type="text" id="ability1-input" name="ability1" placeholder="Ability 1"><br><br>
+            <input type="text" id="ability2-input" name="ability2" placeholder="Ability 2"><br><br>
+            <input type="text" id="description-input" name="description" placeholder="Description"><br><br>
+            <input type="checkbox" id="planeswalker-input" name="isPlanesWalker">
+            <label for="planeswalker">Planeswalker</label><br>
+            <input type="text" id="imagepath-input" name="imagePath" placeholder="Image path">
+            <label id="imagepath-label" for="imagePath">?</label><br>
+            <input type="checkbox" id="favorite-input" name="isFavoriteCard">
+            <label for="favorite">Add to favorites</label><br>
+            <!-- <input type="checkbox" id="type-input" name="water" value="Water">
             <label for="water">Water</label><br>
             <input type="checkbox" id="type-input" name="forest" value="Forest">
             <label for="forest">Forest</label><br> -->
@@ -33,5 +56,6 @@
         </form>
         <p id="add-attempt-result"></p>
     </section>
+    
 </body>
 </html>

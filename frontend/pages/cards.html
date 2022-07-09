@@ -11,70 +11,110 @@
 <body>
     <nav id="nav">
         <ul>
-            <li id="shit"><img id="small-logo" src="../images/small-logo.png"></li>
-            <li><a id="about" href="about.html">About</a></li>
-            <li><a id="cards" href="cards.html">Cards</a></li>
-            <li><a id="decks" href="decks.html">Decks</a></li>
-            <li><a id="login" href="index.html">Log in</a></li>
+            <li id="li-img"><img id="small-logo" src="../images/small-logo.png"></li>
+            <div id="menu-container">
+                <li><a class="a1" id="about" href="about.html">About</a></li>
+                <li><a class="a1" id="cards" href="cards.html">Cards</a></li>
+                <li><a class="a1" id="decks" href="decks.html">Decks</a></li>
+                <li><a class="a1" id="login" href="index.html">Log in</a></li>
+            </div>
         </ul>
     </nav>
 
-    <section id="filter-section">
-        <div class="filter-section" id="order-by">
-            <label for="order-by">Order by:</label>
-            <select name="order-by" id="order-by-options">
-              <option value="latest-added">Latest added</option>
-              <option value="latest-edited">Latest edited</option>
-              <option value="alphabetical-order">Alphabetical order</option>
-              <option value="reversed-alphabetical-order">Reversed alphabetical order</option>
-              <option value="power">Power</option>
-              <option value="toughness">Toughness</option>
-              <option value="type">Type</option>
-              <option value="colors">Colors</option>
-              <option value="mana-cost">Mana cost</option>
-            </select> 
+    <section id="top-page">
+        <section id="filter-section">
+            <div class="filter-section" id="order-by">
+                <label for="order-by">Order by:</label>
+                <select name="order-by" id="order-by-options">
+                    <option value="latest-added">Latest added</option>
+                    <option value="latest-edited">Latest edited</option>
+                    <option value="alphabetical-order">Alphabetical order</option>
+                    <option value="reversed-alphabetical-order">Reversed alphabetical order</option>
+                    <option value="power">Power</option>
+                    <option value="toughness">Toughness</option>
+                    <option value="type">Type</option>
+                    <option value="colors">Colors</option>
+                    <option value="mana-cost">Mana cost</option>
+                </select> 
+            </div>
+            <div class="filter-section" id="filter-by">
+                <label for="filter-by">Filter by:</label>
+                <select name="filter-by" id="filter-by-options">
+                    <option value="power-higher-than">Power higher than...</option>
+                    <option value="toughness-higher-than">Toughness higher than...</option>
+                    <option value="type">Type...</option>
+                    <option value="colors">Colors...</option>
+                    <option value="mana-cost-higher-than">Mana cost higher than...</option>
+                    <option value="in-deck">In a deck</option>
+                    <option value="not-in-a-deck">Not in a deck</option>
+                </select> 
+            </div>
+            <div class="filter-section" id="group-actions">
+                <label for="group-actions">Group actions:</label>
+                <select name="group-actions" id="group-actions-options">
+                    <option value="delete">Delete</option>
+                    <option value="add-to-deck">Add to deck</option>
+                    <option value="add-to-triangle">Add to <i class="fa-solid fa-triangle"></i></option>
+                    <option value="add-to-circle">Add to <i class="fa-solid fa-circle"></i></option>
+                    <option value="add-to-square">Add to <i class="fa-solid fa-square"></i></option>
+                </select> 
+            </div>
+        </section>
+
+        <section id="buttons-section">
+            <button id="add-card-to-deck-btn" onclick="window.location='addCardToDeck.html'"><a href="addCardToDeck.html">Add card to deck</a></button>
+            <button id="add-card-btn" onclick="window.location='addCardToUser.html'"><a href="addCardToUser.html">Add card</a></button>
+        </section>
+    </section>
+
+    <section id="infobox">
+        <div id="infobox-menu">
+            <ul>
+                <li><a id="edit-card" class="a">Edit the card</a></li>
+                <li><a id="delete-card" class="a">Delete the card</a></li>
+                <li><a id="add-to-deck" class="a">Add to deck</a></li>
+                <li><a id="add-to-favourites" class="a">Add to favorites</a></li>
+            </ul>
         </div>
-        <div class="filter-section" id="filter-by">
-            <label for="filter-by">Filter by:</label>
-            <select name="filter-by" id="filter-by-options">
-              <option value="power-higher-than">Power higher than...</option>
-              <option value="toughness-higher-than">Toughness higher than...</option>
-              <option value="type">Type...</option>
-              <option value="colors">Colors...</option>
-              <option value="mana-cost-higher-than">Mana cost higher than...</option>
-              <option value="in-deck">In a deck</option>
-              <option value="not-in-a-deck">Not in a deck</option>
-            </select> 
-        </div>
-        <div class="filter-section" id="group-actions">
-            <label for="group-actions">Group actions:</label>
-            <select name="group-actions" id="group-actions-options">
-              <option value="delete">Delete</option>
-              <option value="add-to-deck">Add to deck</option>
-              <option value="add-to-triangle">Add to <i class="fa-solid fa-triangle"></i></option>
-              <option value="add-to-circle">Add to <i class="fa-solid fa-circle"></i></option>
-              <option value="add-to-square">Add to <i class="fa-solid fa-square"></i></option>
-            </select> 
+        <p id="infobox-message">Click on a card to display its details and perform the actions above</p>
+        <div id="cardinfo">
+            <div id="cardinfo-grid">
+                <p>Name:</p>
+                <p id="cardname">name</p>
+                <p>Type:</p>
+                <p id="cardtype">type</p>
+                <p>Color 1:</p>
+                <p id="color1">Color1</p>
+                <p>Color 2:</p>
+                <p id="color2">Color2</p>
+                <p>Power/Toughness:</p>
+                <div><p id="powerandtoughness">Power/Toughness</p></div>
+                <p>Mana cost:</p>
+                <p id="manacost">Mana cost</p>
+                <p>Ability 1:</p>
+                <p id="ability1">Ability 1</p>
+                <p>Ability 2:</p>
+                <p id="ability2">Ability 2</p>
+                <p>Description:</p>
+                <div id="description-box"><p id="description">Description</p></div>
+                <p id="planeswalker">Planeswalker</p>
+                <p id="favorite">Favorite</p>
+            </div>
+            
         </div>
     </section>
 
-    <div>
-        <button id="add-card-btn" onclick="window.location='addCardToUser.html'"><a href="addCardToUser.html">Add card</a></button>
-        <button id="add-card-to-deck-btn" onclick="window.location='addCardToDeck.html'"><a href="addCardToDeck.html">Add card to deck</a></button>
-    </div>
 
     <table id="cards-display">
-        <tr>
-        <td><div class="card" id="red"></div></td>
-        <td><div class="card" id="blue"></div></td>
-        <td><div class="card" id="green"></div></td>
-        <td><div class="card" id="yellow"></div></td>
-    </tr>
-    <tr>
-        <td><div class="card" id="pink"></div></td>
-        <td><div class="card" id="brown"></div></td>
-        <td><div class="card" id="purple"></div></td>
-        <td><div class="card" id="orange"></div></td>
-    </tr>
+        <tr id="first-row">
+            <!-- <td><div class="card" id="red"></div></td>
+            <td><div class="card" id="blue"></div></td> -->
+            <!-- <td><div class="card" id="green"></div></td>
+            <td><div class="card" id="yellow"></div></td> -->
+        </tr>
     </table>
+
+</body>
+</html>
+
     
