@@ -5,6 +5,10 @@ let login = document.getElementById("login");
 login.innerHTML = String(username);
 let form = document.getElementById("add-deck-form");
 
+
+if (login.innerHTML == String(null)){
+    login.innerHTML = "Log in";
+}
 form.addEventListener("submit", async function(event) {
     event.preventDefault();
     let deck = {};
@@ -60,12 +64,19 @@ document.getElementById("about").addEventListener("click", function(event) {
     location.href = 'about.html?username='+username;
 });
 login.addEventListener(("mouseover"), function() {
-    login.innerHTML = "Log out";
+    if (login.innerHTML == String("Log in")) {
+        login.style.backgroundColor = "orange";
+    } else {
+        login.innerHTML = "Log out";
     login.style.backgroundColor = "red";
+    }
 
     login.addEventListener(("mouseout"), function() {
         login.innerHTML = String(username);
         login.style.backgroundColor = "#383838";
+        if (login.innerHTML == String(null)){
+            login.innerHTML = "Log in";
+        }
     });
 });
 
