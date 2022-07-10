@@ -1,6 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 var username = urlParams.get('username');
-console.log("add card for user:", username);
+console.log("add deck for user:", username);
 let login = document.getElementById("login");
 login.innerHTML = String(username);
 let form = document.getElementById("add-deck-form");
@@ -11,16 +11,42 @@ if (login.innerHTML == String(null)){
 }
 form.addEventListener("submit", async function(event) {
     event.preventDefault();
-    let deck = {};
-    // let nameField = document.getElementById("name-input"); 
+    let deck = {}; 
     let name = document.getElementById("name-input").value; 
+    let description = document.getElementById("description-input").value; 
+    let isFavorite = document.getElementById("favorite-input").checked;
+    let imagepath = document.getElementById("imagepath-input").value;
+    let currentDateTime = new Date();
     deck["name"] = name;
-    await postNewFeedBack(deck);
-    console.log(name);
-    // name = "";
-    console.log(name);
-    document.getElementById("add-attempt-result").innerHTML = "Added succesfully";
-    document.getElementById("add-attempt-result").style.color = "green";
+    deck["description"] = description;
+    deck["isFavorite"] = isFavorite;
+    deck["imagePath"] = imagepath;
+    deck["creationDate"] = currentDateTime;
+
+    console.log(currentDateTime);
+
+    let res = checkImagePath(imagepath);
+    if (res == false) {
+        document.getElementById("add-attempt-result").innerHTML = "Image link should be copied from the official Magic Card Set Symbols website";
+        document.getElementById("add-attempt-result").style.color = "red";
+    } else {
+        await postNewFeedBack(deck);
+        document.getElementById("add-attempt-result").innerHTML = "Added succesfully";
+        document.getElementById("add-attempt-result").style.color = "green";
+
+        setTimeout(function(){
+            document.getElementById("imagepath-input").value = "";
+            document.getElementById("name-input").value = "";
+            document.getElementById("add-attempt-result").innerHTML = "";
+        }, 5000);
+    }
+});
+document.getElementById("imagepath-label").addEventListener("click", function() {
+    document.getElementById("overlay").style.display = "block";
+
+    document.getElementById("overlay").addEventListener("click", function() {
+        document.getElementById("overlay").style.display = "none";
+    });
 });
 
 document.getElementById("cards").addEventListener("click", async function(event) {
@@ -93,9 +119,19 @@ async function postNewFeedBack(deck){
             body: JSON.stringify(deck)
         });
 
-        await response.json();
+        const responseJson = await response.json();
     } catch (e) {
         console.error(e);
         alert("Smth went wrong");
     }
+}
+
+function checkImagePath(imagepath) {
+    let pathStart = "https://cdn-cardmavin.mavin.io/wp-content/uploads/2019/";
+
+    if (imagepath.includes(pathStart) || imagepath === "") {
+        return true;
+    }
+
+    return false;
 }

@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <title>Magic Deck Master</title>
     <link rel="icon" type="image/x-icon" href="../images/small-logo.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../styles/decks.css"></link>
     <script defer type="text/javascript" src="../scripts/decks.js"></script>
 </head>
@@ -13,56 +11,81 @@
     <nav id="nav">
         <ul>
             <li id="li-img"><img id="small-logo" src="../images/small-logo.png"></li>
-            <div>
-                <li><a id="about" href="about.html">About</a></li>
-                <li><a id="cards" href="cards.html">Cards</a></li>
-                <li><a id="decks" href="decks.html">Decks</a></li>
-                <li><a id="login" href="index.html">Log in</a></li>
+            <div id="menu-container">
+                <li><a class="a1" id="about" href="about.html">About</a></li>
+                <li><a class="a1" id="cards" href="cards.html">Cards</a></li>
+                <li><a class="a1" id="decks" href="decks.html">Decks</a></li>
+                <li><a class="a1" id="login" href="index.html">Log in</a></li>
             </div>
         </ul>
     </nav>
 
-    <section id="filter-section">
-        <div class="filter-section" id="order-by">
-            <label for="order-by">Order by:</label>
-            <select name="order-by" id="order-by-options">
-              <option value="latest-created">Latest created</option>
-              <option value="latest-edited">Latest edited</option>
-              <option value="alphabetical-order">Alphabetical order</option>
-              <option value="reversed-alphabetical-order">Reversed alphabetical order</option>
-            </select> 
+    <section id="top-page">
+        <section id="filter-section">
+            <div class="filter-section" id="order-by">
+                <label for="order-by">Order by:</label>
+                <select name="order-by" id="order-by-options">
+                    <option value="latest-created">Latest created</option>
+                    <option value="latest-edited">Latest edited</option>
+                    <option value="alphabetical-order">Alphabetical order</option>
+                    <option value="reversed-alphabetical-order">Reversed alphabetical order</option>
+                </select> 
+            </div>
+            <div class="filter-section" id="filter-by">
+                <label for="filter-by">Filter by:</label>
+                <select name="filter-by" id="filter-by-options">
+                    <option value="colors">Colors...</option>
+                    <option value="favorites">Favorites</option>
+                </select> 
+            </div>
+            <div class="filter-section" id="group-actions">
+                <label for="group-actions">Group actions:</label>
+                <select name="group-actions" id="group-actions-options">
+                    <option value="delete">Delete</option>
+                    <option value="add-to-favorite">Add to favorite</option>
+                </select> 
+            </div>
+        </section>
+
+        <section id="buttons-section">
+            <button id="add-deck-btn" onclick="window.location='addDeckToUser.html'"><a href="addDeckToUser.html">Add deck</a></button>
+        </section>
+    </section>
+
+    <section id="infobox">
+        <div id="infobox-menu">
+            <ul>
+                <li><a id="edit-deck" class="a">Edit the deck</a></li>
+                <li><a id="delete-card" class="a">Delete the deck</a></li>
+                <li><a id="add-to-favourites" class="a">Add to favorites</a></li>
+            </ul>
         </div>
-        <div class="filter-section" id="filter-by">
-            <label for="filter-by">Filter by:</label>
-            <select name="filter-by" id="filter-by-options">
-              <option value="colors">Colors...</option>
-              <option value="favorites">Favorites</option>
-            </select> 
-        </div>
-        <div class="filter-section" id="group-actions">
-            <label for="group-actions">Group actions:</label>
-            <select name="group-actions" id="group-actions-options">
-              <option value="delete">Delete</option>
-              <option value="add-to-favorite">Add to favorite</option>
-            </select> 
+        <p id="infobox-message">Click on a deck to display its details and perform the actions above</p>
+        <div id="deckinfo">
+            <div id="deckinfo-grid">
+                <p>Name:</p>
+                <p id="deckname">name</p>
+                <p>Description:</p>
+                <div id="description-box"><p id="description">Description</p></div>
+                <p>Nr. of cards:</p>
+                <p id="nrcards"></p>
+                <p>Nr. of spells:</p>
+                <p id="nrspells"></p>
+                <p>Nr. of permanents:</p>
+                <p id="nrpermanents"></p>
+                <p>Last edited:</p>
+                <p id="lastedited"></p>
+                <p>Creation date:</p>
+                <p id="creationdate"></p>
+                <p id="planeswalker">Planeswalker</p>
+                <p id="favorite">Favorite</p>
+            </div>
         </div>
     </section>
 
-    <div>
-        <button id="add-deck-btn" onclick="window.location='addDeckToUser.html'"><a href="addDeckToUser.html">Add deck</a></button>
-    </div>
-
-    <table>
-        <tr>
-        <td><div id="red"></div></td>
-        <td><div id="blue"></div></td>
-        <td><div id="green"></div></td>
-        <td><div id="yellow"></div></td>
-    </tr>
-    <tr>
-        <td><div id="pink"></div></td>
-        <td><div id="brown"></div></td>
-        <td><div id="purple"></div></td>
-        <td><div id="orange"></div></td>
-    </tr>
+    <table id="decks-display">
+        <tr id="first-row">
+            <!-- <td><div id="red"></div></td>
+            <td><div id="blue"></div></td> -->
+        </tr>
     </table>

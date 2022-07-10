@@ -20,10 +20,24 @@
         </ul>
     </nav>
 
+    <section id="overlay">
+        <div id="info-box">
+            <p>You can add an icon for your deck from <a href="https://cardmavin.com/mtg/magic-card-set-symbols" target="_blank">This website</a>.<br>
+            Once you found an icon for your deck, right-click on the image and select the <em>Copy Image Link</em> option. Then paste the link in the Image path field in this window.<br><br>
+            Only images from that website's repository will be displayed on this website.
+            </p>
+        </div>
+    </section>
+
     <section>
         <p id="incorrect-deck-details"></p>
-        <form id="add-deck-form" action="http://localhost:8080/users/abc/decks/add-deck" method="post">
+        <form id="add-deck-form" action="http://localhost:8080/users/abc/decks" method="post">
             <input type="text" id="name-input" name="name" placeholder="Deck name"><br><br>
+            <input type="text" id="description-input" name="description" placeholder="Description"><br><br>
+            <input type="checkbox" id="favorite-input" name="isFavoriteDeck">
+            <label for="favorite">Add to favorites</label><br>
+            <input type="text" id="imagepath-input" name="imagePath" placeholder="Image path">
+            <label id="imagepath-label" for="imagePath">?</label><br>
             <input type="submit" value="Add deck" href="addDeckToUser.html">
         </form>
         <p id="add-attempt-result"></p>

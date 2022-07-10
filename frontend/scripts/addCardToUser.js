@@ -143,12 +143,11 @@ async function postNewFeedBack(card){
 function checkImagePath(imagepath) {
     let pathStart = "https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=";
 
-    // if (imagepath.includes(pathStart) || imagepath === "") {
-    //     return true;
-    // }
+    if (imagepath.includes(pathStart) || imagepath === "") {
+        return true;
+    }
 
-    // return false;
-    return true;
+    return false;
 }
 
 // function checkLimitCheckedBoxes(){

@@ -1,10 +1,12 @@
 const urlParams = new URLSearchParams(window.location.search);
 var username = urlParams.get('username');
 console.log("displaying decks for user:", username);
-const table = document.getElementById("cards-display");
+const table = document.getElementById("decks-display");
 let login = document.getElementById("login");
 login.innerHTML = String(username);
 let addDeckBtn = document.getElementById("add-deck-btn");
+let allDecks = document.querySelectorAll(".decks");
+allDecks = Array.from(allDecks);
 
 getDecks();
 
@@ -77,14 +79,97 @@ login.addEventListener(("mouseover"), function() {
 
 async function getDecks() {
     try {
-        const response = await fetch('http://localhost:8080/users/'+username+'/decks');
-        // console.log(response);
+        const response = await fetch('http://localhost:8080/users/'+username+'/decks', {
+            method: 'GET',
+            headers: {
+                'Content-type': 'application/json'
+            },
+        })
         const responseJson = await response.json();
-        console.log(responseJson);
+        // console.log(responseJson);
+
+        var counter = 0;
+        let tr;
         for (const item of responseJson){
-            console.log(item);
+            if (counter % 4 == 0){
+                tr = document.createElement("tr");
+            } 
+            if (counter == 0){
+                tr = document.getElementById("first-row");
+            }
+
+            const td = document.createElement("td");
+            const div = document.createElement("div");
+            const deckname = document.createElement("p");
+            const image = document.createElement("img"); 
+            image.setAttribute('src', item.imagePath);
+            image.setAttribute('max-width', "100%");
+            image.setAttribute('max-height', "100%");
+            image.setAttribute('display', "block");
+            div.setAttribute("class", "decks");
+            div.setAttribute("id", String(item.id));
+            deckname.innerHTML = String(item.name);
+
+            tr.append(td);
+            td.appendChild(div);
+            div.appendChild(image);
+            div.appendChild(deckname);
+            table.appendChild(tr);
+
+            counter++;
+            allDecks.push(div);
         }
+
+        allDecks.forEach(deck => {
+            deck.addEventListener("click", async function() {
+                document.getElementById("infobox-message").style.display = "none";
+                document.getElementById("deckinfo-grid").style.display = "grid";
+
+                await fetchDeckDetails(deck.id);
+
+                //USER WANTS TO ADD DECK TO FAVORITES
+                document.getElementById("add-to-favourites").addEventListener("click", function() {
+                    if (document.getElementById("add-to-favourites").innerHTML == "Add to favorites"){
+                        //
+                    }
+                })
+            });
+        });
+
     } catch (e){
         console.error(e);
+    }
+}
+
+async function fetchDeckDetails(deckID) {
+    try {
+        const response = await fetch('http://localhost:8080/users/'+username+'/decks/'+deckID, {
+            method: 'GET',
+            headers: {
+                'Content-type': 'application/json'
+            },
+        })
+        const responseJson = await response.json();
+
+        document.getElementById("deckname").innerHTML = String(responseJson.name);
+        document.getElementById("description").innerHTML = String(responseJson.description);
+        document.getElementById("nrcards").innerHTML = String(responseJson.nrOfCards);
+        document.getElementById("nrspells").innerHTML = String(responseJson.nrOfSpells);
+        document.getElementById("nrpermanents").innerHTML = String(responseJson.nrOfPermanents);
+        document.getElementById("lastedited").innerHTML = String(responseJson.lastEdited);
+        document.getElementById("creationdate").innerHTML = String(responseJson.creationDate);
+        if (responseJson.hasPlanesWalker == true) {
+            document.getElementById("planeswalker").style.color = "blue";
+        }
+        if (responseJson.isFavorite == true) {
+            document.getElementById("favorite").style.color = "gold";
+            document.getElementById("add-to-favourites").innerHTML = "Remove from favorites";
+        } else {
+            document.getElementById("add-to-favourites").innerHTML = "Add to favorites";
+        }
+
+    } catch (e){
+        console.error(e);
+        alert("smth went wrong");
     }
 }
