@@ -105,9 +105,8 @@ li {
     height: 3em;
 }
 
-#add-card-btn, #add-card-to-deck-btn {
+button {
     display: block;
-    padding: .5em 1em;
     float: right;
     width: 12%;
     height: 100%;
@@ -117,24 +116,21 @@ li {
     background-image: -moz-linear-gradient(top, #F25814, #FAB25A);
     background-image: -ms-linear-gradient(top, #F25814, #FAB25A);
     background-image: -o-linear-gradient(top, #F25814, #FAB25A);
-    background-image: -webkit-gradient(to bottom, #F25814, #FAB25A);
     border: none;
     border-radius: 12px;
     color: #FFFFFF;
     padding: 1em 2em;
-    box-shadow: 1px 1px 20px 0 #000000;
     cursor: pointer;
     text-align: center;
 }
 
-#add-card-btn:hover, #add-card-to-deck-btn:hover {
+button:hover {
     background: #FAB25A;
     background-image: (top, #FAB25A, #F25814);
     background-image: -webkit-linear-gradient(top, #FAB25A, #F25814);
     background-image: -moz-linear-gradient(top, #FAB25A, #F25814);
     background-image: -ms-linear-gradient(top, #FAB25A, #F25814);
     background-image: -o-linear-gradient(top, #FAB25A, #F25814);
-    background-image: -webkit-gradient(to bottom, #FAB25A, #F25814);
     text-decoration: none;
 }
 
@@ -147,7 +143,7 @@ button > a {
     display: grid;
     grid-template-columns: auto;
     justify-items: center;
-    gap: 2em 1em;
+    gap: 2em;
     width: 70%;
     /* row-gap: 4em; */
     /* border: 1px solid red; */
@@ -254,15 +250,6 @@ div > img:hover {
     border-radius: 1em 0em 0em 0em;
 }
 
-.a {
-    display: block;
-    text-align: center;
-    width: 100%;
-    height: 100%;
-    /* padding: 100%; */
-    /* border: 1px solid magenta; */
-}
-
 #infobox-menu > ul > li:hover {
     cursor: pointer;
     background-color: var(--custom-gray);
@@ -310,5 +297,52 @@ div > img:hover {
 #description {
     flex: 1;
     height: 100%;
-
 }
+
+#overlay {
+    position: fixed;
+    margin: 0;
+    display: none;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+#add-to-deck-box {
+    position: fixed;
+    margin-top: 10%;
+    margin-left: 30%;
+    height: 30%;
+    width: 30%;
+    background-color: whitesmoke;
+    color: var(--custom-black);
+    padding: 2em 3em;
+    border-radius: 1em;
+    text-align: justify;
+    border: 1px solid black;
+    /* box-shadow: 20px 20px 5px 1px #565454; */
+    /* box-shadow: 10px 10px 8px 10px #888888; */
+}
+
+#add-to-deck-box:hover {
+    cursor: default;
+}
+
+#close-overlay {
+    float: right;
+    margin-right: -10%;
+    margin-top: -7%;
+    height: 3%;
+    width: 3%;
+    text-align: center;
+    font-size: larger;
+    color: black;
+}
+
+#close-overlay:hover {
+    color: orange;
+    cursor: pointer;
+}
+

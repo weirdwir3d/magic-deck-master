@@ -5,11 +5,10 @@ const table = document.getElementById("cards-display");
 let login = document.getElementById("login");
 login.innerHTML = String(username);
 let addCardBtn = document.getElementById("add-card-btn");
-let cards = document.querySelectorAll(".card");
-let td = document.getElementsByTagName("td");
-let a = document.getElementById("filter-section");
 let allCards = document.querySelectorAll(".cards");
 allCards = Array.from(allCards);
+let allDecks = new Set();
+let arleadyGotAllDecks = false;
 
 getCards();
 
@@ -21,6 +20,12 @@ addCardBtn.addEventListener("click", function(event){
     event.preventDefault();
     location.href = 'addCardToUser.html?username='+username;
 });
+// document.getElementById("add-to-deck").addEventListener("click", function() {
+//     document.getElementById("overlay").style.display = "block";
+//     document.
+// })
+
+
 document.getElementById("cards").addEventListener("click", async function(event) {
     event.preventDefault();
 
@@ -89,7 +94,6 @@ async function getCards() {
             },
         })
         const responseJson = await response.json();
-        // console.log(responseJson);
         var counter = 0;
         let tr;
         for (const item of responseJson){
@@ -130,6 +134,8 @@ async function getCards() {
                 await fetchCardDetails(card.id);
                 // document.getElementById("cardname").innerHTML = String(card.id);
             })
+
+            
         })
     } catch (e){
         console.error(e);
@@ -156,8 +162,51 @@ async function fetchCardDetails(cardID) {
         document.getElementById("ability2").innerHTML = String(responseJson.ability2);
         document.getElementById("description").innerHTML = String(responseJson.description);
 
+        document.getElementById("add-to-deck").addEventListener("click", async function() {
+            document.getElementById("overlay").style.display = "block";
+            document.getElementById("cardtoadd-name").style.color = "orange";
+            document.getElementById("cardtoadd-name").style.display = "inline";
+            document.querySelector("#add-to-deck-box > p").style.display = "inline";
+            document.getElementById("cardtoadd-name").innerHTML = String(responseJson.name);
+
+            if (!arleadyGotAllDecks){
+                await getDecks();
+                allDecks.forEach(function(deck){
+                    var option = document.createElement("option");
+                    option.innerHTML = (String(deck.name));
+                    document.getElementById("available-decks").appendChild(option);
+                });
+            }
+            console.log(allDecks);
+
+            document.getElementById("close-overlay").addEventListener("click", function() {
+                document.getElementById("overlay").style.display = "none";
+            })
+        })
+
     } catch (e){
         console.error(e);
         alert("smth went wrong");
+    }
+}
+
+async function getDecks() {
+    try {
+        const response = await fetch('http://localhost:8080/users/'+username+'/decks', {
+            method: 'GET',
+            headers: {
+                'Content-type': 'application/json'
+            },
+        })
+        const responseJson = await response.json();
+
+        for (const item of responseJson) {
+            // console.log(item);
+            allDecks.add(item);
+        }
+        arleadyGotAllDecks = true;
+
+    } catch (e){
+        console.error(e);
     }
 }

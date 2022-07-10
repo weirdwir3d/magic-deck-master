@@ -6,6 +6,7 @@
 body {
     background-color: var(--custom-black);
     margin: 0;
+    padding: 0;
 }
 
 nav {
@@ -18,7 +19,7 @@ nav {
     /* border: 3px solid brown; */
 }
 
-ul {
+#nav > ul {
     background-color: var(--custom-gray);
     margin: 0;
     padding: 0;
@@ -40,7 +41,7 @@ ul {
     display: block;
 }
 
-div {
+#menu-container {
     /* border: 4px solid yellow; */
     display: flex;
     flex-direction: row;
@@ -63,20 +64,29 @@ li {
     margin-left: .5em;
 }
 
- #decks {
-    background-color: orange;
-}
-
-li > a {
+.a1 {
     color: white;
     text-decoration: none;
     display: block;
     padding: 2em 2em;
 }
 
-li a:hover {
+.a1:hover {
     background-color: orange;
     color: white;
+}
+
+ #decks {
+    background-color: orange;
+}
+
+#top-page {
+    color: white;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* border: 2px solid red; */
 }
 
 #filter-section {
@@ -86,15 +96,20 @@ li a:hover {
     justify-content: space-evenly;
 }
 
-#filter-section + div {
-    margin: 1em 2em;
+#buttons-section {
+    margin-top: 1%;
+    /* margin-bottom: 8%; */
+    /* border: 1px solid pink; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
     height: 3em;
 }
 
 #add-deck-btn {
     display: block;
     padding: .5em 1em;
-    float: right;
     width: 12%;
     height: 100%;
     background: #F25814;
@@ -103,81 +118,201 @@ li a:hover {
     background-image: -moz-linear-gradient(top, #F25814, #FAB25A);
     background-image: -ms-linear-gradient(top, #F25814, #FAB25A);
     background-image: -o-linear-gradient(top, #F25814, #FAB25A);
-    background-image: -webkit-gradient(to bottom, #F25814, #FAB25A);
     border: none;
     border-radius: 12px;
     color: #FFFFFF;
     padding: 1em 2em;
     box-shadow: 1px 1px 20px 0 #000000;
-    text-shadow: 1px 1px 20px #000000;
     cursor: pointer;
     text-align: center;
 }
 
-#add-card-btn:hover {
+#add-deck-btn:hover {
     background: #FAB25A;
     background-image: (top, #FAB25A, #F25814);
     background-image: -webkit-linear-gradient(top, #FAB25A, #F25814);
     background-image: -moz-linear-gradient(top, #FAB25A, #F25814);
     background-image: -ms-linear-gradient(top, #FAB25A, #F25814);
     background-image: -o-linear-gradient(top, #FAB25A, #F25814);
-    background-image: -webkit-gradient(to bottom, #FAB25A, #F25814);
     text-decoration: none;
 }
 
-table {
-    width: 100%;
+#add-deck-btn > a {
+    text-decoration: none;
+    color: white;
 }
 
-table, td {
-    border: 1px solid red;        
+#decks-display {
+    display: grid;
+    grid-template-columns: auto;
+    justify-items: center;
+    gap: 3em;
+    width: 70%;
+}
+
+#decks-display, td {
+    /* border: 1px solid red;         */
+}
+
+td > div {
+    display: block;
+    width: 4.5em;
+    margin: auto;
+    overflow: hidden;
+    color: orange;
+}
+
+tr {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 td > div {
     display: block;
     width: 3.5em;
-    background-color: pink;
     margin: auto;
+    overflow: hidden;
+    color: orange;
+    /* border-radius: 5em; */
 }
 
-/* table > * {
+.decks {
+    height: 12em;
+    width: 10em;
+    background-color: whitesmoke;
+    box-shadow: .8em .8em .2em .1em gray;
+    /* margin-bottom: 1em; */
+}
+
+td {
+    margin: 0em 0em 1em;
+}
+
+.decks:hover{
+    cursor: pointer;
+    background-color: rgb(255, 233, 192);
+}
+
+.decks > p {
+    text-align: center;
+    padding: .3em;
+}
+
+
+div > img {
+    margin: auto;
+    max-width: 90%;
+    max-height: 90%;
     display: block;
-    width: 3.5em;
-    background-color: white;
-} */
-
-#red {
-    height: 20em;
-    width: 15em;
-    background-color: pink;
 }
 
-#blue {
-    height: 20em;
-    width: 15em;
-    background-color: pink;
+div > img:hover {
+    cursor: pointer;
 }
 
-#green {
-    height: 20em;
-    width: 15em;
-    background-color: pink;
+#infobox {
+    bottom: 0;
+    right: 0;
+    height: 80%;
+    position: fixed;
+    display: block;
+    border-radius: 1em 0em 0em 0em;
+    width: 24%;
+    background-color: whitesmoke;
+    /* z-index: 3; */
+    box-shadow: -.3em 1em .3em .4em rgb(96, 96, 96);
+    overflow-y: scroll;
 }
 
-#yellow {
-    height: 20em;
-    width: 15em;
-    background-color: pink;
+#infobox-menu {
+    /* outline: 2px solid orange; */
+    height: 10%;
+    width: 100%;
+    /* overflow: hidden; */
+    overflow: visible;
+    margin: 0;
 }
 
-#pink {
-    height: 5em;
-    width: 3.5em;
-    background-color: blue;
+#infobox-menu > ul {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    /* margin-left: -3.5em; */
+    display: inline;
+    /* border: 2px solid yellow; */
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    justify-content: center;
 }
 
-#brown {
-    height: 5em;
-    width: 3.5em;
-    background-color: blue;
+#infobox-menu > ul > li {
+    display: inline;
+    width: 6.5em;
+    /* height: 3em; */
+    /* align-self: stretch;
+    justify-self: stretch; */
+    background-color: rgb(203, 203, 203);
+    text-align: center;
+    /* padding: .5em 0em; */
+    padding: 0;
+    outline: 1px solid var(--custom-gray);
+    margin: 0;
+}
+
+#infobox-menu > ul > li:first-child {
+    border-radius: 1em 0em 0em 0em;
+}
+
+#infobox-menu > ul > li:hover {
+    cursor: pointer;
+    background-color: var(--custom-gray);
+    color: orange;
+}
+
+#infobox-message {
+    text-align: center;
+    padding: 8em 2em;
+}
+
+#deckinfo + p {
+    padding: 9.2em 1em;
+}
+
+#deckinfo-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: minmax(0, 1fr) 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    justify-content: space-evenly;
+    align-content: center;
+    display: none;
+    text-align: center;
+}
+
+#deckinfo-grid > p{
+    /* display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 3fr 1fr;
+    justify-content: space-evenly;
+    align-content: center; */
+    outline: 1px solid black;
+    height: 100%;
+}
+
+#description-box {
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    overflow: scroll;
+    overflow-y: scroll;
+    min-width: 0;
+    min-height: 0;
+}
+
+#description {
+    flex: 1;
+    height: 100%;
 }

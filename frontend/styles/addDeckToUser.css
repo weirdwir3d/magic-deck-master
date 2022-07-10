@@ -6,12 +6,16 @@
 body {
     background-color: var(--custom-black);
     margin: 0;
+    color: white;
 }
 
 nav {
+    top: 0;
     margin: 0;
     padding: 0;
     height: 3em;
+    position: sticky;
+    box-shadow: .0em .2em .9em .2em rgb(0, 0, 0);
     /* border: 3px solid brown; */
 }
 
@@ -74,4 +78,40 @@ li > a {
 li a:hover {
     background-color: orange;
     color: white;
+}
+
+#overlay {
+    position: fixed;
+    margin: 0;
+    display: none;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+#info-box {
+    position: fixed;
+    margin-top: 10%;
+    margin-left: 30%;
+    height: 40%;
+    width: 30%;
+    background-color: whitesmoke;
+    color: var(--custom-black);
+    padding: 1em 3em;
+    border-radius: 1em;
+    text-align: justify;
+    border: 1px solid black;
+    /* box-shadow: 20px 20px 5px 1px #565454; */
+    /* box-shadow: 10px 10px 8px 10px #888888; */
+}
+
+#imagepath-label {
+    color: blue;
+}
+
+#imagepath-label:hover {
+    color: orange;
+    cursor: pointer;
 }
